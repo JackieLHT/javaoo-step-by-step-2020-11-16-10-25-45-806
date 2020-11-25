@@ -21,13 +21,13 @@ public class Teacher extends Person {
         String intro = super.introduce() + " I am a Teacher.";
         if(klass != null)
             return intro + " I teach Class " + klass.getNumber() + ".";
-        else return intro + " I teach No Class.";
+        return intro + " I teach No Class.";
     }
 
     public String introduceWith(Student student) {
         if(student.getKlass().getNumber() == klass.getNumber()) {
             return super.introduce() + " I am a Teacher. I teach " + student.getName() + ".";
         }
-        else  return super.introduce() + " I am a Teacher. I don't teach " + student.getName() + ".";
+        return super.introduce() + " I am a Teacher. I don't teach " + student.getName() + ".";
     }
 }
