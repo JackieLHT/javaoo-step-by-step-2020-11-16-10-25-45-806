@@ -24,22 +24,23 @@ public class Teacher extends Person {
     public String introduce() {
         String intro = super.introduce() + " I am a Teacher.";
         String allClasses = "";
-        if(this.classes.size() != 0)
+        if(this.classes == null)
         {
-            for(Klass klass:classes){
-                if (klass!=classes.get(classes.size()-1)) {
-                    allClasses += klass.getNumber() + ", ";
-                }
-                else allClasses += klass.getNumber();
-
-            }
-            return intro + " I teach Class " + allClasses + ".";
+            return intro + " I teach No Class.";
         }
-        return intro + " I teach No Class.";
+
+        for(Klass klass:classes){
+            if (klass!=classes.get(classes.size()-1)) {
+                allClasses += klass.getNumber() + ", ";
+            }
+            else allClasses += klass.getNumber();
+
+        }
+        return intro + " I teach Class " + allClasses + ".";
     }
 
     public String introduceWith(Student student) {
-        if(classes.contains((student.getKlass().getNumber()))) {
+        if(classes.stream().anyMatch(klass -> klass.equals(student.getKlass()))) {
             return super.introduce() + " I am a Teacher. I teach " + student.getName() + ".";
         }
         return super.introduce() + " I am a Teacher. I don't teach " + student.getName() + ".";
