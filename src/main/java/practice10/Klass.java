@@ -56,13 +56,13 @@ public class Klass implements Observable{
     }
 
     @Override
-    public void notifyJoined(Klass klass,Student student) {
+    public void notifyJoined(Student student) {
         for (Observer teacher : teachers) {
             teacher.updateJoined(this ,student);
         }
     }
 
-    public void notifyLeader(Klass klass,Student student) {
+    public void notifyLeader(Student student) {
         for (Observer teacher : teachers) {
             teacher.updateLeader(this, student);
         }

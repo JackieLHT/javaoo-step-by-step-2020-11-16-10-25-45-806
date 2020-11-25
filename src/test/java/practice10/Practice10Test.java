@@ -164,28 +164,30 @@ public class Practice10Test {
 
     @Test
     public void should_teacher_be_notified_when_student_join_any_classes_it_teaches() throws Exception {
+        Klass klass3 = new Klass(3);
         LinkedList<practice10.Klass> linkedList = new LinkedList<Klass>();
-        linkedList.add(klass2);
+        linkedList.add(klass3);
         Teacher tom = new Teacher(1, "Tom", 21, linkedList);
         Student jerry = new Student(1, "Jerry", 8, new Klass(3));
 
-        klass2.appendMember(jerry);
+        klass3.appendMember(jerry);
 
-//        assertThat(systemOut().endsWith("I am Tom. I know Jerry has joined Class 2.\n")).isTrue();
-        assertThat(systemOut()).isEqualTo(("I am Tom. I know Jerry has joined Class 2.\n"));
+        assertThat(systemOut().endsWith("I am Tom. I know Jerry has joined Class 3.\n")).isTrue();
+//        assertThat(systemOut()).isEqualTo(("I am Tom. I know Jerry has joined Class 2.\n"));
     }
 
     @Test
     public void should_teacher_be_notified_when_any_class_it_teaches_assigned_a_leader() throws Exception {
+        Klass klass3 = new Klass(3);
         LinkedList<practice10.Klass> linkedList = new LinkedList<Klass>();
-        linkedList.add(klass2);
+        linkedList.add(klass3);
         Teacher tom = new Teacher(1, "Tom", 21, linkedList);
         Student jerry = new Student(1, "Jerry", 8, new Klass(3));
 
-        klass2.appendMember(jerry);
-        klass2.assignLeader(jerry);
+        klass3.appendMember(jerry);
+        klass3.assignLeader(jerry);
 
-//        assertThat(systemOut().endsWith("I am Tom. I know Jerry become Leader of Class 2.\n")).isTrue();
-        assertThat(systemOut()).isEqualTo(("I am Tom. I know Jerry become Leader of Class 2.\n"));
+        assertThat(systemOut().endsWith("I am Tom. I know Jerry become Leader of Class 3.\n")).isTrue();
+//        assertThat(systemOut()).isEqualTo(("I am Tom. I know Jerry become Leader of Class 2.\n"));
     }
 }
