@@ -34,16 +34,22 @@ public class Klass implements Observable{
             return;
         }
         this.leader = student;
-        student.introduce();
         notifyLeader(student);
     }
 
     public void appendMember(Student student) {
+        if(student.getKlass().getNumber() != this.number) {
+            student.setKlassNumber(this.number);
+        }
         if(!isIn(student))
         {
             studentList.add(student);
             notifyJoined(student);
         }
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
     }
 
     public boolean isIn(Student student) {
@@ -58,13 +64,13 @@ public class Klass implements Observable{
     @Override
     public void notifyJoined(Student student) {
         for (Observer teacher : teachers) {
-            teacher.updateJoined(this ,student);
+            teacher.updateJoined(student);
         }
     }
 
     public void notifyLeader(Student student) {
         for (Observer teacher : teachers) {
-            teacher.updateLeader(this, student);
+            teacher.updateLeader(student);
         }
     }
 }

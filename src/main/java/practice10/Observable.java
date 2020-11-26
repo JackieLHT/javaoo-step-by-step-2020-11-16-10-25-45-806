@@ -1,9 +1,10 @@
 package practice10;
 
 public interface Observable {
-    public void attached(Observer teacher);
 
-    public void notifyJoined(Student student);
+    void attached(Observer teacher);
 
-    public void notifyLeader(Student student);
+    void notifyJoined(Student student);
+
+    void notifyLeader(Student student);
 }

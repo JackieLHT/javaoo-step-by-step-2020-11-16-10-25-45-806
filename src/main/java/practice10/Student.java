@@ -10,6 +10,10 @@ public class Student extends Person {
         this.klass = klass;
     }
 
+    public void setKlassNumber(int number) {
+        klass.setNumber(number);
+    }
+
     public Klass getKlass() {
         return this.klass;
     }

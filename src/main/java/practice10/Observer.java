@@ -1,7 +1,7 @@
 package practice10;
 
 public interface Observer {
-    public void updateJoined(Klass klass,Student student);
+    void updateJoined(Student student);
 
-    public void updateLeader(Klass klass,Student student);
+    void updateLeader(Student student);
 }
